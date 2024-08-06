@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}Data Training{% endblock %}
+
+{% block content %}
+<!-- Search -->
+<div class="navbar-nav align-items-center">
+    <div class="nav-item d-flex align-items-center">
+        <form method="GET" action="" class="position-relative">
+            <input type="text" name="search" class="form-control border-0 shadow-none ps-1 ps-sm-2" placeholder="Cari Siswa" aria-label="Search..." value="{{ search_query }}">
+            <i class="bx bx-search fs-4 lh-0 position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);"></i>
+        </form>
+    </div>
+</div>
+<h1 class="m-0 text-dark">DATA SISWA</h1>
+<div class='table-responsive'>
+    <table class='table table-bordered table-hover mt-2'>
+        <tr>
+            {% for col in column_names %}
+            <th>{{col}}</th>
+            {% endfor %}
+            <th>Aksi</th>
+        </tr>
+        {% for row in row_data %}
+        <tr>
+            {% for col, row_ in zip(column_names, row) %}
+            {% if col == link_column %}
+            <td>
+                <button type="submit" value={{ row_ }} name="person_id" form="patient_form" class="patient_button">
+                    {{ row_ }}
+                </button>
+            </td>
+            {% else %}
+            <td>{{row_}}</td>
+            {% endif %}
+            {% endfor %}
+            <td>
+                <a href="/edit/{{row[0]}}" class="btn btn-warning">Edit</a>
+                <a href="/delete/{{row[0]}}" class="btn btn-danger">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

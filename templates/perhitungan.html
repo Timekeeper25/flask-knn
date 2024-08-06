@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Data Training{% endblock %}
+
+{% block content %}
+<h1 class="m-0 text-dark">DATA TESTING</h1>
+<div class="card mt-5">
+	<div class="card-body login-card-body">
+		<h2>Pencarian Kelas Siswa</h2>
+		<form action="{{ url_for('perhitungan') }}" method="post">
+			<label for="nama">Nama</label>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" id="nama" name="nama">
+				<div class="input-group-append"></div>
+			</div>
+			<label for="usia">Usia</label>
+			<div class="input-group mb-3">
+				<input type="number" class="form-control" id="usia" name="usia">
+				<div class="input-group-append"></div>
+			</div>
+			<label for="potensi">Potensi (Silahkan Nilai Seberapa Besar Potensi Anda Dalam Bidang Balet)</label>
+			<div class="input-group mb-3">
+				<input type="number" class="form-control" id="potensi" name="potensi" placeholder="Masukkan Angka 1 (Rendah) - 5 (Tinggi)" min="1" max="5">
+				<div class="input-group-append"></div>
+			</div>
+			<label for="pengalaman">Pengalaman (Silahkan Nilai Seberapa Banyak Pengalaman Anda Sebelumnya Dalam Bidang Balet (Tahun))</label>
+			<div class="input-group mb-3">
+				<input type="number" class="form-control" id="pengalaman" name="pengalaman">
+				<div class="input-group-append"></div>
+			</div>
+			<label for="keinginan">Keinginan Orangtua (Silahkan Nilai Seberapa Banyak Keinginan Orangtua Anda Dalam Bidang Balet)</label>
+			<div class="input-group mb-3">
+				<input type="number" class="form-control" id="keinginan" name="keinginan" placeholder="Masukkan Angka 1 (Rendah) - 10 (Tinggi)" min="1" max="10">
+				<div class="input-group-append"></div>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
