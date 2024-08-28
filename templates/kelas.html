@@ -5,16 +5,18 @@
 <div class='table-responsive'>
     <table class='table table-bordered table-hover mt-2'>
         <tr>
+            <th>Nomor Kelas</th>
             {% for col in column_names %}
             <th>{{col}}</th>
             {% endfor %}
         </tr>
-        {% for row_index, row in enumerate(row_data) %}  {# Use enumerate to get the index #}
+        {% for row in row_data %}
         <tr>
+            <td>{{ loop.index }}</td>
             {% for col, row_ in zip(column_names, row) %}
             {% if col == link_column %}
             <td>
-                <button type="submit" value={{ row_ }} name="person_id" form="patient_form" class="patient_button" id="row-{{ row_index }}">  {# Incrementing ID #}
+                <button type="submit" value={{ row_ }} name="person_id" form="patient_form" class="patient_button">
                     {{ row_ }}
                 </button>
             </td>

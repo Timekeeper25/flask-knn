@@ -141,18 +141,19 @@
               <div data-i18n="Dashboards">Data Master</div>
             </a>
             <ul class="menu-sub">
-              {% if current_user.role == 'admin' %}
+            {% if current_user.role == 'admin' %}
               <li>
                 <a href="{{ url_for('siswa') }}" class="menu-link">
                   <div>Siswa-Siswi</div>
                 </a>
               </li>
-              {% endif %}
+            {% endif %}
               <li>
                 <a href="{{ url_for('kelas') }}" class="menu-link">
                   <div>Kelas</div>
                 </a>
               </li>
+            {% if current_user.role == 'admin' %}
               <li>
                 <a href="{{ url_for('training') }}" class="menu-link">
                   <div>Data Training</div>
@@ -163,6 +164,7 @@
                   <div>Data Testing</div>
                 </a>
               </li>
+            {% endif %}
               <li>
                 <a href="{{ url_for('perhitungan') }}" class="menu-link">
                   <div>Perhitungan</div>
@@ -209,8 +211,12 @@
                           </div>
                         </div>
                         <div class="flex-grow-1">
-                          <span class="fw-medium d-block">John Doe</span>
-                          <small class="text-muted">Admin</small>
+                        {% if current_user.role == 'admin' %}
+                          <span class="fw-medium d-block">Admin</span>
+                        {% endif %}
+                        {% if current_user.role == 'user' %}
+                          <span class="fw-medium d-block">User</span>
+                        {% endif %}
                         </div>
                       </div>
                     </a>

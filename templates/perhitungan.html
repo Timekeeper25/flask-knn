@@ -29,11 +29,17 @@
 			</div>
 			<label for="keinginan">Keinginan Orangtua (Silahkan Nilai Seberapa Banyak Keinginan Orangtua Anda Dalam Bidang Balet)</label>
 			<div class="input-group mb-3">
-				<input type="number" class="form-control" id="keinginan" name="keinginan" placeholder="Masukkan Angka 1 (Rendah) - 10 (Tinggi)" min="1" max="10">
+				<input type="number" class="form-control" id="keinginan" name="keinginan" placeholder="Masukkan Angka 1 (Rendah) - 13 (Tinggi)" min="1" max="13">
 				<div class="input-group-append"></div>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
+
+    {% if predicted_class %}
+    <div class="card-footer">
+        <h3>Hasil Prediksi Kelas: <span class="text-success">{{ predicted_class }}</span></h3>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
